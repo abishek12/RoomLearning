@@ -7,4 +7,12 @@ class StudentRepository(private val stdDao: StudentDao) {
     fun addData(student: Student){
         stdDao.addStudentData(student)
     }
+
+    fun updateData(student: Student){
+        stdDao.updateStudentData(student)
+    }
+
+    fun deleteData(sId: String?){
+        stdDao.deleteStudentData(sId)
+    }
 }

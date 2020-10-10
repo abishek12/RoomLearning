@@ -2,4 +2,6 @@
     <string name="app_name">Room Learning</string>
     <string name="add_data">Add Data</string>
     <string name="name">Name</string>
+    <string name="update_data">Update Data</string>
+    <string name="id">Id</string>
 </resources>

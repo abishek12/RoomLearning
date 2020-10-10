@@ -23,6 +23,17 @@ class StudentViewModel(application: Application) : AndroidViewModel(application)
         }
     }
 
+    fun updateStdData(student: Student){
+        viewModelScope.launch(Dispatchers.IO) {
+            repo.updateData(student)
+        }
+    }
+
+    fun deleteStdData(sId: String?){
+        viewModelScope.launch(Dispatchers.IO) {
+            repo.deleteData(sId)
+        }
+    }
 
 
 }

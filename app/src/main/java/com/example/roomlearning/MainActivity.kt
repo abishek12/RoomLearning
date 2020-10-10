@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -18,13 +17,14 @@ import kotlinx.android.synthetic.main.alert_add.view.*
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var viewModel: StudentViewModel
+    public lateinit var viewModel: StudentViewModel
     lateinit var customAdapter: CustomAdapter
     lateinit var recyclerView: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        supportActionBar?.title = "Student List"
 
         viewModel =
             ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory(application)).get(
@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
     //    display user information
     private fun displayInfo() {
         recyclerView = findViewById(R.id.recyclerview)
-        customAdapter = CustomAdapter()
+        customAdapter = CustomAdapter(this)
         recyclerView.adapter = customAdapter
         recyclerView.layoutManager = LinearLayoutManager(this)
         viewModel.readStdData.observe(this, Observer { students ->
